@@ -1,65 +1,51 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Layout from "../components/_layout";
+import Header from "../components/_header";
+import MiniPost from "../components/_miniPost";
 
-export default function Home() {
+export async function getStaticProps(context) {
+  const res = await fetch("http://localhost:1337/home-page");
+  const data = await res.json();
+  console.log(data);
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+const Home = ({ data }) => {
+  const background_image = `url('http://localhost:1337${data.background_image.url}')`;
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Header />
+      <div
+        style={{
+          backgroundImage: background_image,
+        }}
+        className={styles.container}
+      >
+        <main className={styles.main}>
+          <h1>{data.main_heading}</h1>
+          <h2>{data.subheading}</h2>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+          <section className={styles.featured}>
+            <div className={styles.featured_post}>
+              <MiniPost postData={data.featured_post} type="post" />
+            </div>
+            <div className={styles.featured_project}></div>
+          </section>
+        </main>
+      </div>
+    </>
+  );
+};
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+export default Home;

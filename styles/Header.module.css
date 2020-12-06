@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+  position: relative;
+  /* position: fixed; */
+}
+
+.logo {
+  width: 100px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
