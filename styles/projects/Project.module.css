@@ -1,13 +1,19 @@
 .post_title {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin: 0;
+  font-weight: 100;
 }
 
 .post_date {
   text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 900;
 }
 
-.single_post {
+.intro {
+  line-height: 1.6;
+  padding: 40px 0px;
 }
 
 .featured_image {
@@ -17,15 +23,20 @@
 }
 
 .tags {
-  padding: 16px 32px;
-  background: black;
-  color: white;
+  padding: 16px 0px;
   max-width: 760px;
 }
 
 .tags h5 {
   margin-top: 0;
   margin-bottom: 8px;
+  font-size: 1rem;
+
+  font-weight: 700;
+}
+
+.tags span {
+  font-size: 1.4rem;
 }
 
 .content {

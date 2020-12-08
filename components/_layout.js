@@ -8,7 +8,9 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     async function getRelated() {
-      const res = await fetch(`http://localhost:1337/posts?_limit=2`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_APIROOT}/posts?_limit=2`
+      );
       const posts = await res.json();
       setRelatedPosts(posts);
     }
@@ -23,20 +25,20 @@ const Layout = ({ children }) => {
       <footer className={styles.footer}>
         <div className={styles.cta}>AP</div>
         <div className={styles.recent}>
-          <h2>Recent:</h2>
+          <h2 style={{ fontSize: "2rem", marginTop: 0 }}>Featured:</h2>
           <div className={styles.related_posts_grid}>
             {relatedPosts.map((post) => {
               return (
-                <Link href={"/posts/" + post.Slug}>
+                <Link href={"/posts/" + post.slug}>
                   <a className={styles.related_post}>
                     <img
                       className={styles.featured_image}
                       src={
-                        "http://localhost:1337" +
-                        post.Featured_Image.formats.medium.url
+                        process.env.NEXT_PUBLIC_APIROOT +
+                        post.featured_image.formats.medium.url
                       }
                     />
-                    <h3>{post.Title}</h3>
+                    <h3>{post.title}</h3>
                   </a>
                 </Link>
               );

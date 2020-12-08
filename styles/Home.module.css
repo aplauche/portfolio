@@ -1,6 +1,7 @@
 .container {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +10,36 @@
   background: #fafafa;
   margin-top: -100px;
   background-size: cover;
+  overflow: hidden;
+}
+
+.main {
+  width: 80%;
+}
+
+.main h1 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 6vw;
+  margin: 0;
+}
+
+.main h2 {
+  /* font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900; */
+  font-size: 1.6rem;
 }
 
 .featured {
-  width: 60%;
-  height: 100px;
+  width: 100%;
+  max-width: 800px;
+
   position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   bottom: 0;
   right: 0;
 }
@@ -32,4 +54,18 @@
   width: 50%;
   background-color: white;
   height: 100%;
+}
+
+@media (max-width: 600px) {
+  .featured {
+    flex-direction: column;
+  }
+
+  .featured_post {
+    width: 100%;
+  }
+
+  .featured_project {
+    width: 100%;
+  }
 }

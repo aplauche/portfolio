@@ -1,28 +1,14 @@
-import styles from "../../styles/posts/Posts.module.css";
+import styles from "../../styles/projects/Projects.module.css";
 import Link from "next/link";
 import Layout from "../../components/_layout";
-import {
-  gridItem,
-  gridParent,
-  barReveal,
-  quarterSecondStagger,
-} from "../../components/_animations";
 import Moment from "react-moment";
+import { gridItem, gridParent } from "../../components/_animations";
 import { motion } from "framer-motion";
 
-function PostsPage({ posts }) {
+function ProjectsPage({ posts }) {
   return (
     <Layout>
-      <div className="bar_reveal_container">
-        <motion.div
-          className="bar_reveal"
-          variants={barReveal}
-          initial="hidden"
-          animate="show"
-        ></motion.div>
-        <h1 className="page_title">Recent Posts</h1>
-      </div>
-
+      <h1>Recent Projects</h1>
       <motion.section
         variants={gridParent}
         initial="hidden"
@@ -31,7 +17,7 @@ function PostsPage({ posts }) {
       >
         {posts.map((post) => {
           return (
-            <Link href={"/posts/" + post.slug}>
+            <Link href={"/projects/" + post.slug}>
               <motion.a
                 variants={gridItem}
                 key={post.slug}
@@ -59,7 +45,7 @@ function PostsPage({ posts }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:1337/posts");
+  const res = await fetch("http://localhost:1337/projects");
   const posts = await res.json();
   console.log(posts);
 
@@ -70,4 +56,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default PostsPage;
+export default ProjectsPage;
