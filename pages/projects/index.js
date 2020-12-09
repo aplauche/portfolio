@@ -30,7 +30,7 @@ function ProjectsPage({ posts }) {
                   }
                 />
                 <p>
-                  <small>
+                  <small className="mini-text">
                     <Moment format="MMM Do YYYY">{post.published_at}</Moment>
                   </small>
                 </p>

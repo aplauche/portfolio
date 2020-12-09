@@ -78,6 +78,14 @@ p {
   bottom: 0;
 }
 
+.mini-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
 .page_title {
   margin: 0;
 }

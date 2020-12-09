@@ -8,6 +8,7 @@ import {
   quarterSecondStagger,
   fadeIn,
 } from "../../components/_animations";
+import ReactMarkdown from "react-markdown";
 
 const PostsPage = ({ post }) => {
   return (
@@ -25,7 +26,7 @@ const PostsPage = ({ post }) => {
                 variants={barReveal}
               ></motion.div>
               <p className={styles.post_date}>
-                <small>
+                <small className="mini-text">
                   <Moment format="MMM Do YYYY">{post.published_at}</Moment>
                 </small>
               </p>
@@ -48,13 +49,15 @@ const PostsPage = ({ post }) => {
         />
 
         <div className={styles.tags}>
-          <h5>TAGS:</h5>
+          <h5 className="mini-text">TAGS:</h5>
           {post.tags.map((tag) => {
             return <span>{tag.Tag_Name}</span>;
           })}
         </div>
 
-        <section className={styles.content}>{post.content}</section>
+        <section className={styles.content}>
+          <ReactMarkdown source={post.content} />
+        </section>
       </article>
     </Layout>
   );
