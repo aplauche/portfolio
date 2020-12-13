@@ -37,12 +37,7 @@ function PostsPage({ posts }) {
                 key={post.slug}
                 className={styles.single_post_teaser}
               >
-                <img
-                  src={
-                    "http://localhost:1337" +
-                    post.featured_image.formats.large.url
-                  }
-                />
+                <img src={post.featured_image?.formats.large.url} />
                 <p>
                   <small className="mini-text">
                     <Moment format="MMM Do YYYY">{post.published_at}</Moment>
@@ -59,7 +54,7 @@ function PostsPage({ posts }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:1337/posts");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`);
   const posts = await res.json();
   console.log(posts);
 

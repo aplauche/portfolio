@@ -3,6 +3,7 @@ import styles from "../../styles/projects/Project.module.css";
 import Layout from "../../components/_layout";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
+import DynamicContent from "../../components/_dynamicContent";
 
 const ProjectsPage = ({ post }) => {
   return (
@@ -15,16 +16,20 @@ const ProjectsPage = ({ post }) => {
         <div className={styles.tags}>
           <h5>Type of work:</h5>
           {post.tags?.map((tag) => {
-            return <span>{tag.Tag_Name}</span>;
+            if (post.tags[0] == tag) {
+              return <span>{tag.Tag_Name}</span>;
+            } else {
+              return <span> | {tag.Tag_Name}</span>;
+            }
           })}
         </div>
         <img
           className={styles.featured_image}
-          src={"http://localhost:1337" + post.featured_image.formats.large.url}
+          src={post.featured_image?.formats.medium.url}
         />
 
         <section className={styles.content}>
-          <ReactMarkdown source={post.content} />
+          <DynamicContent data={post.dynamic_content} />
         </section>
       </article>
     </Layout>
@@ -34,7 +39,7 @@ const ProjectsPage = ({ post }) => {
 export async function getStaticProps({ params }) {
   console.log(params);
   const res = await fetch(
-    `http://localhost:1337/projects?_where[slug]=${params.slug}`
+    `${process.env.NEXT_PUBLIC_API}/projects?_where[slug]=${params.slug}`
   );
   const data = await res.json();
   const post = data[0];
@@ -45,7 +50,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:1337/projects`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/projects`);
   const data = await res.json();
 
   // Get the paths we want to pre-render based on posts

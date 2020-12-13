@@ -7,7 +7,7 @@ import { quarterSecondStagger, barReveal } from "../components/_animations";
 import { motion } from "framer-motion";
 
 export async function getStaticProps(context) {
-  const res = await fetch("http://localhost:1337/home-page");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/home-page`);
   const data = await res.json();
   console.log(data);
 
@@ -59,7 +59,7 @@ const Home = ({ data }) => {
     },
   };
 
-  const background_image = `url('http://localhost:1337${data.background_image.url}')`;
+  const background_image = `url('${data.background_image.url}')`;
   return (
     <>
       <Head>
@@ -112,7 +112,7 @@ const Home = ({ data }) => {
               variants={featuredItem}
               className={styles.featured_project}
             >
-              <MiniPost postData={data.featured_post} type="project" />
+              <MiniPost postData={data.featured_project} type="project" />
             </motion.div>
           </motion.section>
         </main>

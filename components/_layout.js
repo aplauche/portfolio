@@ -8,9 +8,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     async function getRelated() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APIROOT}/posts?_limit=2`
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts?_limit=2`);
       const posts = await res.json();
       setRelatedPosts(posts);
     }
@@ -33,10 +31,7 @@ const Layout = ({ children }) => {
                   <a className={styles.related_post}>
                     <img
                       className={styles.featured_image}
-                      src={
-                        process.env.NEXT_PUBLIC_APIROOT +
-                        post.featured_image.formats.medium.url
-                      }
+                      src={post.featured_image?.formats.medium.url}
                     />
                     <h3>{post.title}</h3>
                   </a>

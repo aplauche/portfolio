@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "../../styles/posts/Post.module.css";
 import Layout from "../../components/_layout";
+import DynamicContent from "../../components/_dynamicContent";
 import Moment from "react-moment";
 import { motion } from "framer-motion";
 import {
@@ -45,15 +46,19 @@ const PostsPage = ({ post }) => {
           initial="hidden"
           animate="show"
           className={styles.featured_image}
-          src={"http://localhost:1337" + post.featured_image.formats.large.url}
+          src={post.featured_image?.formats.large.url}
         />
 
         <div className={styles.tags}>
           <h5 className="mini-text">TAGS:</h5>
           {post.tags.map((tag) => {
-            return <span>{tag.Tag_Name}</span>;
+            return <span>{tag.Tag_Name} </span>;
           })}
         </div>
+
+        <section className={styles.content}>
+          <DynamicContent data={post.dynamic_content} />
+        </section>
 
         <section className={styles.content}>
           <ReactMarkdown source={post.content} />
@@ -66,7 +71,7 @@ const PostsPage = ({ post }) => {
 export async function getStaticProps({ params }) {
   console.log(params);
   const res = await fetch(
-    `http://localhost:1337/posts?_where[slug]=${params.slug}`
+    `${process.env.NEXT_PUBLIC_API}/posts?_where[slug]=${params.slug}`
   );
   const data = await res.json();
   const post = data[0];
@@ -77,7 +82,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:1337/posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`);
   const data = await res.json();
 
   // Get the paths we want to pre-render based on posts
