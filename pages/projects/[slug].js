@@ -49,17 +49,4 @@ export async function getServerSideProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/projects`);
-  const data = await res.json();
-
-  // Get the paths we want to pre-render based on posts
-  const paths = data.map((post) => ({
-    params: { slug: post.slug.toString() },
-  }));
-
-  // We'll pre-render only these paths at build time.
-  return { paths, fallback: false };
-}
-
 export default ProjectsPage;
