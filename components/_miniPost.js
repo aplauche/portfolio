@@ -22,7 +22,10 @@ function MiniPost({ postData, type }) {
   return (
     <Link href={`/${baseUrl}/${postData.slug}`}>
       <a style={{ color: color }} className={styles.mini_post}>
-        <img src={postData.featured_image?.formats.thumbnail.url} alt="" />
+        <img
+          src={postData.featured_image?.formats.thumbnail.url}
+          alt={postData.title}
+        />
         <div className={styles.info}>
           <p style={{ color: color }} className={styles.pre_title}>
             Featured {preTitle}
