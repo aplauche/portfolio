@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Layout from "../components/_layout";
 import Header from "../components/_header";
 import MiniPost from "../components/_miniPost";
 import { quarterSecondStagger, barReveal } from "../components/_animations";
