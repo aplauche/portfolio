@@ -53,7 +53,7 @@ function PostsPage({ posts }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`);
   const posts = await res.json();
   console.log(posts);
