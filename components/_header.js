@@ -1,7 +1,10 @@
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -15,6 +18,26 @@ const Header = () => {
           <a>Projects</a>
         </Link>
       </div>
+      <button
+        className={styles.burger}
+        onClick={() => {
+          setNavOpen(!navOpen);
+        }}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      {navOpen && (
+        <div className={styles.mobile_nav}>
+          <Link href="/posts">
+            <a>Posts</a>
+          </Link>
+          <Link href="/projects">
+            <a>Projects</a>
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

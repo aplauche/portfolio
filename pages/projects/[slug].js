@@ -1,8 +1,6 @@
-import Link from "next/link";
+import Image from "next/image";
 import styles from "../../styles/projects/Project.module.css";
 import Layout from "../../components/_layout";
-import ReactMarkdown from "react-markdown";
-import Moment from "react-moment";
 import DynamicContent from "../../components/_dynamicContent";
 
 const ProjectsPage = ({ post }) => {
@@ -23,6 +21,16 @@ const ProjectsPage = ({ post }) => {
             }
           })}
         </div>
+
+        {/* <Image
+          className={styles.featured_image}
+          src={post.featured_image?.formats.medium.url}
+          alt={post.title}
+          layout="responsive"
+          width="800"
+          height="200"
+        /> */}
+
         <img
           className={styles.featured_image}
           src={post.featured_image?.formats.medium.url}

@@ -12,7 +12,6 @@ function DynamicContent({ data }) {
             return <ReactMarkdown key={section.id} source={section.markdown} />;
             break;
           case "content.autoplay-video":
-            console.log(section);
             return (
               <video
                 key={section.id}
