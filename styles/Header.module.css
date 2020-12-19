@@ -57,7 +57,7 @@
 
 @media (max-width: 600px) {
   .burger {
-    margin: 40px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

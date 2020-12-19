@@ -28,7 +28,7 @@
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 6vw;
+  font-size: 8vw;
   margin: 0;
 }
 
@@ -74,5 +74,20 @@
 
   .featured_project {
     width: 100%;
+  }
+
+  .main h1 {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 12vw;
+    margin: 0;
+  }
+
+  .main h2 {
+    /* font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 900; */
+    font-size: 1.2rem;
   }
 }

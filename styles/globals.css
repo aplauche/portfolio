@@ -67,6 +67,14 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+pre {
+  max-width: 100%;
+  overflow: scroll;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #000;
+}
+
 .bar_reveal_container {
   position: relative;
   display: table;
