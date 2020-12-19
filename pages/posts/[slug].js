@@ -13,7 +13,11 @@ import ReactMarkdown from "react-markdown";
 
 const PostsPage = ({ post }) => {
   return (
-    <Layout>
+    <Layout
+      metaTitle={post.seo_title}
+      metaDesc={post.seo_desc}
+      metaImage={post.featured_image?.formats.medium.url}
+    >
       <article className={styles.single_post}>
         <header>
           <motion.div
@@ -46,7 +50,7 @@ const PostsPage = ({ post }) => {
           initial="hidden"
           animate="show"
           className={styles.featured_image}
-          src={post.featured_image?.formats.large.url}
+          src={post.featured_image?.formats.medium.url}
         />
 
         <div className={styles.tags}>

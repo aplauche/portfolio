@@ -2,45 +2,48 @@ import Image from "next/image";
 import styles from "../../styles/projects/Project.module.css";
 import Layout from "../../components/_layout";
 import DynamicContent from "../../components/_dynamicContent";
+import Head from "next/head";
 
 const ProjectsPage = ({ post }) => {
   return (
-    <Layout>
-      <article className={styles.single_post}>
-        <header>
-          <h1 className={styles.post_title}>{post.title}</h1>
-        </header>
-        <h3 className={styles.intro}>{post.intro}</h3>
-        <div className={styles.tags}>
-          <h5>Type of work:</h5>
-          {post.tags?.map((tag) => {
-            if (post.tags[0] == tag) {
-              return <span>{tag.Tag_Name}</span>;
-            } else {
-              return <span> | {tag.Tag_Name}</span>;
-            }
-          })}
-        </div>
+    <>
+      <Layout
+        metaTitle={post.title}
+        metaDesc={post.intro}
+        metaImage={post.featured_image?.formats.medium.url}
+      >
+        <article className={styles.single_post}>
+          <header>
+            <h1 className={styles.post_title}>{post.title}</h1>
+          </header>
+          <h3 className={styles.intro}>{post.intro}</h3>
+          <div className={styles.tags}>
+            <h5>Type of work:</h5>
+            {post.tags?.map((tag) => {
+              if (post.tags[0] == tag) {
+                return <span>{tag.Tag_Name}</span>;
+              } else {
+                return <span> | {tag.Tag_Name}</span>;
+              }
+            })}
+          </div>
 
-        {/* <Image
-          className={styles.featured_image}
-          src={post.featured_image?.formats.medium.url}
-          alt={post.title}
-          layout="responsive"
-          width="800"
-          height="200"
-        /> */}
+          <div className={styles.featured_image}>
+            <Image
+              className={styles.inner_image}
+              src={post.featured_image?.formats.medium.url}
+              alt={post.title}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
 
-        <img
-          className={styles.featured_image}
-          src={post.featured_image?.formats.medium.url}
-        />
-
-        <section className={styles.content}>
-          <DynamicContent data={post.dynamic_content} />
-        </section>
-      </article>
-    </Layout>
+          <section className={styles.content}>
+            <DynamicContent data={post.dynamic_content} />
+          </section>
+        </article>
+      </Layout>
+    </>
   );
 };
 

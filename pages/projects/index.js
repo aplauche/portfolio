@@ -1,5 +1,6 @@
 import styles from "../../styles/projects/Projects.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import Layout from "../../components/_layout";
 import Moment from "react-moment";
 import { gridItem, gridParent } from "../../components/_animations";
@@ -7,7 +8,12 @@ import { motion } from "framer-motion";
 
 function ProjectsPage({ posts }) {
   return (
-    <Layout>
+    <Layout
+      metaTitle={"Projects"}
+      metaDesc={
+        "A collection of recent web and design projects by Anton Plauche."
+      }
+    >
       <h1>Recent Projects</h1>
       <motion.section
         variants={gridParent}
@@ -23,7 +29,15 @@ function ProjectsPage({ posts }) {
                 key={post.slug}
                 className={styles.single_post_teaser}
               >
-                <img src={post.featured_image?.formats.medium.url} />
+                <div className={styles.featured_image}>
+                  <Image
+                    className={styles.inner_image}
+                    src={post.featured_image?.formats.medium.url}
+                    alt={post.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>{" "}
                 <p>
                   <small className="mini-text">
                     <Moment format="MMM Do YYYY">{post.published_at}</Moment>

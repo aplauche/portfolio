@@ -1,5 +1,6 @@
 import styles from "../../styles/posts/Posts.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import Layout from "../../components/_layout";
 import {
   gridItem,
@@ -12,7 +13,12 @@ import { motion } from "framer-motion";
 
 function PostsPage({ posts }) {
   return (
-    <Layout>
+    <Layout
+      metaTitle={"Blog Posts"}
+      metaDesc={
+        "Articles on web development, UI/UX, and digital marketing by Anton Plauche."
+      }
+    >
       <div className="bar_reveal_container">
         <motion.div
           className="bar_reveal"
@@ -37,7 +43,15 @@ function PostsPage({ posts }) {
                 key={post.slug}
                 className={styles.single_post_teaser}
               >
-                <img src={post.featured_image?.formats.large.url} />
+                <div className={styles.featured_image}>
+                  <Image
+                    className={styles.inner_image}
+                    src={post.featured_image?.formats.medium.url}
+                    alt={post.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
                 <p>
                   <small className="mini-text">
                     <Moment format="MMM Do YYYY">{post.published_at}</Moment>

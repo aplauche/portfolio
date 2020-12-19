@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../components/_header";
 import MiniPost from "../components/_miniPost";
@@ -62,8 +63,30 @@ const Home = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Anton Plauche</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta
+          name="description"
+          content={
+            "A portfolio of Projects and Articles by Anton Plauche. Built with Strapi and Next.js"
+          }
+        />
+        {/* Open Graph */}
+        <meta property="og:image" content={""} key="ogimage" />
+        <meta
+          property="og:site_name"
+          content="Anton Plauche"
+          key="ogsitename"
+        />
+        <meta property="og:title" content={"Anton Plauche"} key="ogtitle" />
+        <meta
+          property="og:description"
+          content={
+            "A portfolio of Projects and Articles by Anton Plauche. Built with Strapi and Next.js"
+          }
+          key="ogdesc"
+        />
       </Head>
 
       <Header />
@@ -73,6 +96,11 @@ const Home = ({ data }) => {
         }}
         className={styles.container}
       >
+        <Image
+          className={styles.bg_image}
+          src={data.background_image.url}
+          layout="fill"
+        />
         <main className={styles.main}>
           <motion.div
             variants={quarterSecondStagger}

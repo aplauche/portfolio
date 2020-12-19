@@ -19,7 +19,19 @@
 .featured_image {
   margin-top: 70px;
   width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 70%;
   display: block;
+  position: relative;
+}
+
+.inner_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
 }
 
 .tags {

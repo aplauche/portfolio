@@ -13,6 +13,13 @@
   overflow: hidden;
 }
 
+.bg_image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
 .main {
   width: 80%;
 }

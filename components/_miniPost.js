@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "../styles/MiniPost.module.css";
 
@@ -22,10 +23,15 @@ function MiniPost({ postData, type }) {
   return (
     <Link href={`/${baseUrl}/${postData.slug}`}>
       <a style={{ color: color }} className={styles.mini_post}>
-        <img
-          src={postData.featured_image?.formats.thumbnail.url}
-          alt={postData.title}
-        />
+        <div className={styles.featured_image}>
+          <Image
+            className={styles.inner_image}
+            src={postData.featured_image?.formats.medium.url}
+            alt={postData.title}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <div className={styles.info}>
           <p style={{ color: color }} className={styles.pre_title}>
             Featured {preTitle}

@@ -1,9 +1,11 @@
 import styles from "../styles/Layout.module.css";
 import Header from "./_header";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
-const Layout = ({ children }) => {
+const Layout = ({ metaTitle, metaDesc, metaImage, children }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
@@ -18,6 +20,25 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Head>
+        <title>
+          {metaTitle ? metaTitle + " | Anton Plauche" : "Anton Plauche"}
+        </title>
+        <meta name="description" content={metaDesc || ""} />
+        {/* Open Graph */}
+        <meta property="og:image" content={metaImage || ""} key="ogimage" />
+        <meta
+          property="og:site_name"
+          content="Anton Plauche"
+          key="ogsitename"
+        />
+        <meta
+          property="og:title"
+          content={metaTitle ? metaTitle + " | Anton Plauche" : "Anton Plauche"}
+          key="ogtitle"
+        />
+        <meta property="og:description" content={metaDesc || ""} key="ogdesc" />
+      </Head>
       <Header />
       <main className={styles.content}>{children}</main>
       <footer className={styles.footer}>
@@ -29,10 +50,15 @@ const Layout = ({ children }) => {
               return (
                 <Link href={"/posts/" + post.slug}>
                   <a className={styles.related_post}>
-                    <img
-                      className={styles.featured_image}
-                      src={post.featured_image?.formats.medium.url}
-                    />
+                    <div className={styles.featured_image}>
+                      <Image
+                        className={styles.inner_image}
+                        src={post.featured_image?.formats.medium.url}
+                        alt={post.title}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
                     <h3>{post.title}</h3>
                   </a>
                 </Link>
