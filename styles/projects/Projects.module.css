@@ -10,7 +10,7 @@
 .single_post_teaser {
   width: 100%;
   /* border-bottom: 1px solid black; */
-  max-width: 300px;
+
   cursor: pointer;
 }
 
@@ -38,4 +38,20 @@
 .single_post_teaser p {
   margin-bottom: 4px;
   padding: 0;
+}
+
+@media (max-width: 800px) {
+  .post_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .post_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .single_post_teaser h3 {
+    font-size: 1.4rem;
+  }
 }

@@ -100,6 +100,7 @@ const Home = ({ data }) => {
           className={styles.bg_image}
           src={data.background_image.url}
           layout="fill"
+          objectFit="cover"
         />
         <main className={styles.main}>
           <motion.div

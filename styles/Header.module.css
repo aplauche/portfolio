@@ -92,16 +92,16 @@
     transform: rotate(0);
   }
 
-  .burger.open div:first-child {
+  button.open div:first-child {
     transform: rotate(45deg);
   }
 
-  .burger.open div:nth-child(2) {
+  button.open div:nth-child(2) {
     opacity: 0;
     opacity: translateX(20px);
   }
 
-  .burger.open div:nth-child(3) {
+  button.open div:nth-child(3) {
     transform: rotate(-45deg);
   }
   .mobile_nav {

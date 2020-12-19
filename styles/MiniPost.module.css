@@ -45,8 +45,10 @@
 }
 
 .post_title {
-  font-size: 1.2rem;
+  font-weight: 100;
+  font-size: 1rem;
   margin: 8px 0px;
+  padding-right: 12px;
 }
 
 /* HOVER STYLES */

@@ -43,3 +43,13 @@
 .content {
   margin: 75px 0px;
 }
+
+@media (max-width: 580px) {
+  .post_title {
+    font-size: 2.6rem;
+  }
+
+  .tags span {
+    font-size: 1rem;
+  }
+}
