@@ -51,59 +51,7 @@
   z-index: -1;
 }
 
-.burger {
-  display: none;
-}
-
 @media (max-width: 600px) {
-  .burger {
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 2rem;
-    height: 2rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
-  }
-
-  .burger div {
-    width: 2rem;
-    height: 0.25rem;
-    background: black;
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-  }
-
-  .burger div:first-child {
-    transform: rotate(0);
-  }
-
-  .burger div:nth-child(2) {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .burger div:nth-child(3) {
-    transform: rotate(0);
-  }
-
-  button.open div:first-child {
-    transform: rotate(45deg);
-  }
-
-  button.open div:nth-child(2) {
-    opacity: 0;
-    opacity: translateX(20px);
-  }
-
-  button.open div:nth-child(3) {
-    transform: rotate(-45deg);
-  }
   .mobile_nav {
     display: flex;
     height: 100%;

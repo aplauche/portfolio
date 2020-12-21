@@ -114,3 +114,60 @@ pre {
     font-size: 2rem;
   }
 }
+
+/* BURGER STYLING */
+
+.burger {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .burger {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .burger div {
+    width: 2rem;
+    height: 0.25rem;
+    background: black;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+  }
+
+  .burger div:first-child {
+    transform: rotate(0);
+  }
+
+  .burger div:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .burger div:nth-child(3) {
+    transform: rotate(0);
+  }
+
+  .burger.open div:first-child {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .burger.open div:nth-child(2) {
+    opacity: 0;
+    opacity: translateX(20px);
+  }
+
+  .burger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+}

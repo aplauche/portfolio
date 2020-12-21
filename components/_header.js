@@ -19,7 +19,7 @@ const Header = () => {
         </Link>
       </div>
       <button
-        className={`${navOpen ? "open" : ""} ${styles.burger}`}
+        className={`${navOpen ? "open" : ""} burger`}
         onClick={() => {
           setNavOpen(!navOpen);
         }}

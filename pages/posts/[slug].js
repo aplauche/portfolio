@@ -15,7 +15,7 @@ const PostsPage = ({ post }) => {
   return (
     <Layout
       metaTitle={post.seo_title}
-      metaDesc={post.seo_desc}
+      metaDesc={post.seo_description}
       metaImage={post.featured_image?.formats.medium.url}
     >
       <article className={styles.single_post}>
