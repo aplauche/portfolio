@@ -10,7 +10,7 @@ const ProjectsPage = ({ post }) => {
       <Layout
         metaTitle={post.title}
         metaDesc={post.intro}
-        metaImage={post.featured_image?.formats.medium.url}
+        metaImage={post.featured_image?.formats?.medium.url}
       >
         <article className={styles.single_post}>
           <header>
