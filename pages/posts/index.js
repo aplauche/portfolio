@@ -54,7 +54,7 @@ function PostsPage({ posts }) {
                 </div>
                 <p>
                   <small className="mini-text">
-                    <Moment format="MMM Do YYYY">{post.published_at}</Moment>
+                    <Moment format="MMM Do YYYY">{post.date}</Moment>
                   </small>
                 </p>
                 <h3>{post.title}</h3>
@@ -68,7 +68,9 @@ function PostsPage({ posts }) {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/posts?_sort=date:DESC`
+  );
   const posts = await res.json();
   console.log(posts);
 

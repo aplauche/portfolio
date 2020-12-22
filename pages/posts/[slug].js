@@ -32,7 +32,7 @@ const PostsPage = ({ post }) => {
               ></motion.div>
               <p className={styles.post_date}>
                 <small className="mini-text">
-                  <Moment format="MMM Do YYYY">{post.published_at}</Moment>
+                  <Moment format="MMM Do YYYY">{post.date}</Moment>
                 </small>
               </p>
             </div>
