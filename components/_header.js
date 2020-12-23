@@ -11,6 +11,9 @@ const Header = () => {
         <a className={styles.logo}>AP</a>
       </Link>
       <div className={styles.nav}>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
         <Link href="/posts">
           <a>Posts</a>
         </Link>
@@ -30,6 +33,9 @@ const Header = () => {
       </button>
       {navOpen && (
         <div className={styles.mobile_nav}>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
           <Link href="/posts">
             <a>Posts</a>
           </Link>
