@@ -55,6 +55,56 @@
   margin: 75px 0px;
 }
 
+.content img {
+  margin: 40px auto;
+  display: block;
+}
+
+.auth {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth h2 {
+  margin: 0;
+  margin-top: 32px;
+}
+
+.auth input[type="password"] {
+  padding: 8px 12px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.auth input[type="password"]:focus {
+  outline: none;
+}
+
+.auth input[type="submit"] {
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+  border-radius: 0;
+  padding: 6px 24px;
+  display: block;
+  margin: 20px auto;
+  font-family: "Monserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.auth input[type="submit"]:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
 @media (max-width: 580px) {
   .post_title {
     font-size: 2.6rem;

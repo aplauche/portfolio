@@ -42,11 +42,28 @@ const Layout = ({ metaTitle, metaDesc, metaImage, children }) => {
       <Header />
       <main className={styles.content}>{children}</main>
       <footer className={styles.footer}>
-        <div className={styles.cta}>AP</div>
-        <div className={styles.recent}>
+        <div className={styles.cta}>
+          <span>AP</span>
+          <div className={styles.footernav}>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/projects">
+              <a>Projects</a>
+            </Link>
+          </div>
+        </div>
+
+        {/*<div className={styles.recent}>
+          <h2>Anton Plauché</h2>
           <h2 style={{ fontSize: "2rem", marginTop: 0 }}>Featured:</h2>
           <div className={styles.related_posts_grid}>
-            {relatedPosts.map((post) => {
+          
+
+           {relatedPosts.map((post) => {
               return (
                 <Link href={"/posts/" + post.slug}>
                   <a className={styles.related_post}>
@@ -63,9 +80,9 @@ const Layout = ({ metaTitle, metaDesc, metaImage, children }) => {
                   </a>
                 </Link>
               );
-            })}
+            })} 
           </div>
-        </div>
+        </div>*/}
       </footer>
     </>
   );

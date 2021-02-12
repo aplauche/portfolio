@@ -1,9 +1,8 @@
 .post_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   margin: 100px auto;
-  column-gap: 20px;
+  column-gap: 32px;
   row-gap: 70px;
 }
 
@@ -17,7 +16,7 @@
 .featured_image {
   width: 100%;
   max-width: 100%;
-  height: 200px;
+  height: 300px;
   display: block;
   position: relative;
 }
@@ -41,8 +40,8 @@
 }
 
 @media (max-width: 800px) {
-  .post_grid {
-    grid-template-columns: 1fr 1fr;
+  .featured_image {
+    height: 200px;
   }
 }
 

@@ -124,7 +124,7 @@ const Home = ({ data }) => {
             </div>
           </motion.div>
 
-          <motion.section
+          {/* <motion.section
             variants={featuredContainer}
             initial="hidden"
             animate="show"
@@ -142,7 +142,7 @@ const Home = ({ data }) => {
             >
               <MiniPost postData={data.featured_project} type="project" />
             </motion.div>
-          </motion.section>
+          </motion.section> */}
         </main>
       </div>
     </>
