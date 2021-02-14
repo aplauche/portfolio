@@ -11,7 +11,7 @@ function ProjectsPage({ posts }) {
     <Layout
       metaTitle={"Projects"}
       metaDesc={
-        "A collection of recent UI / UX, web, and design projects by Anton Plauche."
+        "A collection of recent UI / UX, web, marketing, and design projects by Anton Plauche."
       }
     >
       <h1>Recent Projects</h1>
